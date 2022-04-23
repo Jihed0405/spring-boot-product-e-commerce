@@ -1,0 +1,9 @@
+
+{
+    "name":"project-e-commerce",
+    "buildpacks":[
+        {
+            "url":"heroku/java"
+        }
+    ]
+}
