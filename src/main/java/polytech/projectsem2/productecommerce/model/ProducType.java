@@ -1,20 +1,22 @@
 package polytech.projectsem2.productecommerce.model;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import lombok.Data;
+@Data
+@Entity
+@Table(name = "categories")
+public class ProducType {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-public enum ProducType {
-    BAGS("BAGS"),
-    SMALL_LEATHER_GOODS("SMALL LEATHER GOODS"),
-    ACCESSORIES("ACCESSORIES"),
-    READY_TO_WEAR("READY-TO-WEAR"),
-    SHOES("SHOES"),
-    FASHION_JEWELRY("FASHION JEWELRY");
-    private String displayProductType;
+    @Column(name = "name",nullable = false,length = 100)
+    private  String Categoryname;
 
-    ProducType(String displayProductType) {
-        this.displayProductType = displayProductType;
-    }
-
-    public String displayName() { return displayProductType; }
-
-    // Optionally and/or additionally, toString.
-    @Override public String toString() { return displayProductType; }
+  
+  
 }

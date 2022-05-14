@@ -6,7 +6,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import polytech.projectsem2.productecommerce.model.Product;
 import polytech.projectsem2.productecommerce.repository.ProductRepository;
 
@@ -39,3 +38,4 @@ public class ProductServiceImpl implements ProductService {
         return productRepository.findAll();
     }
 }
+   

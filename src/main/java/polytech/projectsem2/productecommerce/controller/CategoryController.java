@@ -12,35 +12,36 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import polytech.projectsem2.productecommerce.model.Product;
-import polytech.projectsem2.productecommerce.service.ProductService;
+import polytech.projectsem2.productecommerce.model.ProducType;
+import polytech.projectsem2.productecommerce.service.CategoryService;
+
 
 
 
 @RestController
-@RequestMapping("api/product")
-public class ProductController {
+@RequestMapping("api/category")
+public class CategoryController {
 
     @Autowired
-    private ProductService productService;
+    private CategoryService categoryService;
 
     @PostMapping
-    public ResponseEntity<?> saveProduct(@RequestBody Product product)
+    public ResponseEntity<?> saveCategory(@RequestBody ProducType category)
     {
-        return new ResponseEntity<>(productService.saveProduct(product), HttpStatus.CREATED);
+        return new ResponseEntity<>(categoryService.saveCategory(category), HttpStatus.CREATED);
     }
     
-    @DeleteMapping("{productId}")
-    public ResponseEntity<?> deleteProduct(@PathVariable Long productId)
+    @DeleteMapping("{categoryId}")
+    public ResponseEntity<?> deleteCategory(@PathVariable Long categoryId)
     {
-        productService.deleteProduct(productId);
+        categoryService.deleteCategory(categoryId);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @GetMapping
-    public ResponseEntity<?> getAllProducts()
+    public ResponseEntity<?> getAllCategories()
      {
-        return new ResponseEntity<>(productService.findAllProducts(), HttpStatus.OK);
+        return new ResponseEntity<>(categoryService.findAllCategories(), HttpStatus.OK);
      }
     
 }
