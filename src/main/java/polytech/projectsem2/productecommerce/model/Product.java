@@ -40,11 +40,12 @@ public class Product {
     private LocalDateTime creatTime;
 
     
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "categorie_id",referencedColumnName = "id",insertable = false,updatable = false)
-    private ProducType category;
+   
 
     @Column(name = "categorie_id",nullable = false)
     private Long categoryId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "categorie_id",referencedColumnName = "id",insertable = false,updatable = false)
+    private ProducType category;
 
 }
