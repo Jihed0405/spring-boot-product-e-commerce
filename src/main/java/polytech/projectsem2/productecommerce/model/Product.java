@@ -44,7 +44,7 @@ public class Product {
     @JoinColumn(name = "categorie_id",referencedColumnName = "id",insertable = false,updatable = false)
     private ProducType category;
 
-    @Column(name = "category_id",nullable = false)
+    @Column(name = "categorie_id",nullable = false)
     private Long categoryId;
 
 }
