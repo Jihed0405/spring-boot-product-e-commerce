@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import polytech.projectsem2.productecommerce.model.Product;
+import polytech.projectsem2.productecommerce.service.CategoryService;
 import polytech.projectsem2.productecommerce.service.ProductService;
 
 
@@ -24,11 +25,19 @@ public class ProductController {
 
     @Autowired
     private ProductService productService;
+    @Autowired
+    private CategoryService categoryService;
 
-    @PostMapping
-    public ResponseEntity<?> saveProduct(@RequestBody Product product)
-    {
-        return new ResponseEntity<>(productService.saveProduct(product), HttpStatus.CREATED);
+    @PostMapping("{categoryId}")
+    public ResponseEntity<?> saveProduct(@PathVariable Long categoryId,@RequestBody Product product)
+    {var val=categoryService.findByCategoryId(categoryId);
+        if(val.isPresent()){
+            product.setCategory( val.get());
+            return new ResponseEntity<>(productService.saveProduct(product), HttpStatus.CREATED);
+        }
+        else return new ResponseEntity<>(productService.saveProduct(product), HttpStatus.BAD_REQUEST);
+
+        
     }
     
     @DeleteMapping("{productId}")

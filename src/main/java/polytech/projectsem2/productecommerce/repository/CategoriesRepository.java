@@ -6,5 +6,5 @@ import polytech.projectsem2.productecommerce.model.ProducType;
 
 
 public interface  CategoriesRepository extends JpaRepository<ProducType,Long>{
-    
+   
 }

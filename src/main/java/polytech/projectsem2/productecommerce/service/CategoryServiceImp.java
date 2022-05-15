@@ -1,12 +1,12 @@
 package polytech.projectsem2.productecommerce.service;
-
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import polytech.projectsem2.productecommerce.model.ProducType;
 import polytech.projectsem2.productecommerce.repository.CategoriesRepository;
+
 
 
 
@@ -16,6 +16,8 @@ public class CategoryServiceImp implements CategoryService {
     
     @Autowired
     private CategoriesRepository categoriesRepository;
+  
+   
 
     @Override
     public ProducType saveCategory(ProducType category)
@@ -36,5 +38,14 @@ public class CategoryServiceImp implements CategoryService {
     {
         return categoriesRepository.findAll();
     }
+
+    @Override
+    public Optional<ProducType> findByCategoryId(Long id) {
+        
+        return categoriesRepository.findById(id);
+    }
+
+   
+    
 }
    
