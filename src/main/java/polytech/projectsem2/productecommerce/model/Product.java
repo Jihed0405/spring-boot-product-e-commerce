@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.FetchType;
+
 
 import lombok.Data;
 @Data
@@ -41,6 +41,6 @@ public class Product {
 
     
     @ManyToOne
-    private ProducType category;
-
+    @JoinColumn(name = "productype_id")
+    private ProducType productype;
 }

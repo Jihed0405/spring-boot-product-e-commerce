@@ -7,12 +7,11 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import lombok.Data;
-
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 @Data
 @Entity
-@Table(name = "categories")
+@Table(name = "productype")
 public class ProducType {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,8 +20,8 @@ public class ProducType {
     @Column(name = "name",nullable = false,length = 100)
     private  String Categoryname;
 
-    @OneToMany(mappedBy = "category")
-	private List<Product> products = new ArrayList<>();
+    @OneToMany(mappedBy = "productype")
+	private Set<Product> products=new HashSet<>() ;
   
   
 }
