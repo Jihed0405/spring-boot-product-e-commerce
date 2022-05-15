@@ -3,7 +3,7 @@ import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -40,7 +40,6 @@ public class Product {
     private LocalDateTime creatTime;
 
     
-    @ManyToOne
-    @JoinColumn(name = "productype_id")
-    private ProducType productype;
-}
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "category_id", nullable = false)
+    private ProducType category;}
