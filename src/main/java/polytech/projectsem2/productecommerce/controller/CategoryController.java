@@ -43,5 +43,9 @@ public class CategoryController {
      {
         return new ResponseEntity<>(categoryService.findAllCategories(), HttpStatus.OK);
      }
-    
+     @GetMapping("{categoryId}")
+    public ResponseEntity<?> getCategoryById(@PathVariable Long categoryId)
+     {
+        return new ResponseEntity<>(categoryService.findByCategoryId(categoryId), HttpStatus.OK);
+     }
 }

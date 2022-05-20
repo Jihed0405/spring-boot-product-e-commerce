@@ -10,6 +10,7 @@ import polytech.projectsem2.productecommerce.model.Purchase;
 import polytech.projectsem2.productecommerce.repository.PurchaseRepository;
 import polytech.projectsem2.productecommerce.repository.projection.PurchaseItem;
 
+
 @Service
 public class PurchaseServiceImpl implements PurchaseService 
 {
@@ -30,5 +31,6 @@ public class PurchaseServiceImpl implements PurchaseService
     {
         return purchaseRepository.findAllPurchasesOfUser(userId);
     }
+    
 }
     

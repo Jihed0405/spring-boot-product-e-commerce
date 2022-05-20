@@ -45,4 +45,10 @@ public class UserServiceImpl implements UserService{
     {
         userRepository.updateUserRole(username, newRole);
     }
+
+    @Override
+    public Optional<User> findByIdUser(Long id) {
+        
+        return userRepository.findById(id);
+    }
 }
