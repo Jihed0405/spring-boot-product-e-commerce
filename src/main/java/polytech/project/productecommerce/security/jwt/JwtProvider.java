@@ -1,9 +1,8 @@
 package polytech.project.productecommerce.security.jwt;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.security.core.Authentication;
 
+import jakarta.servlet.http.HttpServletRequest;
 import polytech.project.productecommerce.security.UserPrincipal;
 
 public interface JwtProvider {
